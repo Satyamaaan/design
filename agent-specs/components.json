@@ -1,0 +1,501 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "library": "@radix-ui/themes",
+    "description": "Component specifications for AI agent code generation"
+  },
+  "components": {
+    "Button": {
+      "description": "Clickable action element for user interactions",
+      "importPath": "@radix-ui/themes",
+      "props": {
+        "variant": {
+          "type": "enum",
+          "values": ["solid", "soft", "outline", "ghost"],
+          "default": "solid",
+          "description": "Button style variant"
+        },
+        "size": {
+          "type": "enum",
+          "values": ["1", "2", "3", "4"],
+          "default": "2",
+          "description": "Button size"
+        },
+        "color": {
+          "type": "string",
+          "default": "accent",
+          "description": "Button color (20+ color options)"
+        },
+        "disabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disable button interaction"
+        },
+        "children": {
+          "type": "ReactNode",
+          "required": true,
+          "description": "Button text or content"
+        }
+      },
+      "examples": [
+        "<Button>Click me</Button>",
+        "<Button variant='soft' size='3'>Soft Button</Button>",
+        "<Button color='red' variant='outline'>Delete</Button>",
+        "<Button disabled>Disabled</Button>"
+      ]
+    },
+    "Card": {
+      "description": "Content container with border and padding",
+      "importPath": "@radix-ui/themes",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": ["1", "2", "3"],
+          "default": "2",
+          "description": "Card size"
+        },
+        "variant": {
+          "type": "enum",
+          "values": ["classic", "surface"],
+          "default": "surface",
+          "description": "Card style variant"
+        },
+        "children": {
+          "type": "ReactNode",
+          "required": true,
+          "description": "Card content"
+        }
+      },
+      "examples": [
+        "<Card><p>Card content</p></Card>",
+        "<Card size='3'><Heading>Title</Heading><Text>Description</Text></Card>"
+      ]
+    },
+    "Flex": {
+      "description": "Flexible container for 1D layouts (row or column)",
+      "importPath": "@radix-ui/themes",
+      "props": {
+        "direction": {
+          "type": "enum",
+          "values": ["row", "column"],
+          "default": "row",
+          "description": "Layout direction"
+        },
+        "gap": {
+          "type": "enum",
+          "values": ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+          "description": "Space between items"
+        },
+        "align": {
+          "type": "enum",
+          "values": ["start", "center", "end", "baseline", "stretch"],
+          "description": "Cross-axis alignment"
+        },
+        "justify": {
+          "type": "enum",
+          "values": ["start", "center", "end", "between", "around"],
+          "description": "Main-axis alignment"
+        },
+        "wrap": {
+          "type": "enum",
+          "values": ["nowrap", "wrap"],
+          "default": "nowrap",
+          "description": "Wrap behavior"
+        },
+        "children": {
+          "type": "ReactNode",
+          "required": true,
+          "description": "Flex content"
+        }
+      },
+      "examples": [
+        "<Flex gap='2'><Button>A</Button><Button>B</Button></Flex>",
+        "<Flex direction='column' gap='4'><Text>Item 1</Text><Text>Item 2</Text></Flex>",
+        "<Flex justify='between' align='center'><Text>Left</Text><Text>Right</Text></Flex>"
+      ]
+    },
+    "Grid": {
+      "description": "2D layout container for grid layouts",
+      "importPath": "@radix-ui/themes",
+      "props": {
+        "columns": {
+          "type": "string | object",
+          "default": "1",
+          "description": "Grid columns (e.g., '3' or { initial: '1', md: '3' })"
+        },
+        "gap": {
+          "type": "enum",
+          "values": ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+          "description": "Space between grid items"
+        },
+        "rows": {
+          "type": "string",
+          "description": "Grid rows definition"
+        },
+        "children": {
+          "type": "ReactNode",
+          "required": true,
+          "description": "Grid items"
+        }
+      },
+      "examples": [
+        "<Grid columns='3' gap='4'><Card>1</Card><Card>2</Card><Card>3</Card></Grid>",
+        "<Grid columns={{ initial: '1', md: '2' }} gap='3'><Item /><Item /></Grid>"
+      ]
+    },
+    "Text": {
+      "description": "Display text content with typography",
+      "importPath": "@radix-ui/themes",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+          "default": "3",
+          "description": "Text size"
+        },
+        "color": {
+          "type": "string",
+          "description": "Text color"
+        },
+        "weight": {
+          "type": "enum",
+          "values": ["light", "normal", "medium", "bold"],
+          "description": "Font weight"
+        },
+        "children": {
+          "type": "ReactNode",
+          "required": true,
+          "description": "Text content"
+        }
+      },
+      "examples": [
+        "<Text>Regular text</Text>",
+        "<Text size='4' weight='bold'>Bold heading text</Text>",
+        "<Text color='gray'>Muted text</Text>"
+      ]
+    },
+    "Heading": {
+      "description": "Semantic heading for page structure",
+      "importPath": "@radix-ui/themes",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+          "default": "4",
+          "description": "Heading size"
+        },
+        "color": {
+          "type": "string",
+          "description": "Heading color"
+        },
+        "as": {
+          "type": "enum",
+          "values": ["h1", "h2", "h3", "h4", "h5", "h6"],
+          "description": "HTML heading level"
+        },
+        "children": {
+          "type": "ReactNode",
+          "required": true,
+          "description": "Heading text"
+        }
+      },
+      "examples": [
+        "<Heading>Main Title</Heading>",
+        "<Heading size='6' as='h1'>Page Title</Heading>",
+        "<Heading size='4'>Section Heading</Heading>"
+      ]
+    },
+    "TextField": {
+      "description": "Text input field for user input",
+      "importPath": "@radix-ui/themes",
+      "props": {
+        "placeholder": {
+          "type": "string",
+          "description": "Placeholder text"
+        },
+        "size": {
+          "type": "enum",
+          "values": ["1", "2", "3"],
+          "default": "2",
+          "description": "Input size"
+        },
+        "type": {
+          "type": "enum",
+          "values": ["text", "email", "password", "number", "search", "url"],
+          "default": "text",
+          "description": "Input type"
+        },
+        "value": {
+          "type": "string",
+          "description": "Current input value"
+        },
+        "onChange": {
+          "type": "function",
+          "description": "Change event handler"
+        },
+        "disabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disable input"
+        },
+        "required": {
+          "type": "boolean",
+          "default": false,
+          "description": "Mark as required"
+        }
+      },
+      "examples": [
+        "<TextField.Root placeholder='Enter name' />",
+        "<TextField.Root type='email' placeholder='Email' required />",
+        "<TextField.Root value={value} onChange={(e) => setValue(e.target.value)} />"
+      ]
+    },
+    "Select": {
+      "description": "Dropdown select for choosing from options",
+      "importPath": "@radix-ui/themes",
+      "props": {
+        "value": {
+          "type": "string",
+          "description": "Selected value"
+        },
+        "onValueChange": {
+          "type": "function",
+          "description": "Change event handler"
+        },
+        "disabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disable select"
+        }
+      },
+      "examples": [
+        "<Select.Root><Select.Trigger placeholder='Choose' /><Select.Content><Select.Item value='a'>Option A</Select.Item></Select.Content></Select.Root>"
+      ]
+    },
+    "Table": {
+      "description": "Data table for displaying structured data",
+      "importPath": "@radix-ui/themes",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": ["1", "2", "3"],
+          "default": "2",
+          "description": "Table size"
+        }
+      },
+      "subComponents": {
+        "Table.Root": "Container for table",
+        "Table.Header": "Table header section",
+        "Table.Body": "Table body section",
+        "Table.Row": "Table row",
+        "Table.Cell": "Table cell"
+      },
+      "examples": [
+        "<Table.Root><Table.Header><Table.Row><Table.Cell>Name</Table.Cell></Table.Row></Table.Header><Table.Body><Table.Row><Table.Cell>John</Table.Cell></Table.Row></Table.Body></Table.Root>"
+      ]
+    },
+    "Dialog": {
+      "description": "Modal dialog for focused interactions",
+      "importPath": "@radix-ui/themes",
+      "props": {
+        "open": {
+          "type": "boolean",
+          "description": "Dialog open state"
+        },
+        "onOpenChange": {
+          "type": "function",
+          "description": "Open state change handler"
+        }
+      },
+      "subComponents": {
+        "Dialog.Root": "Dialog container",
+        "Dialog.Trigger": "Opens dialog",
+        "Dialog.Content": "Dialog content",
+        "Dialog.Title": "Dialog title",
+        "Dialog.Close": "Closes dialog"
+      },
+      "examples": [
+        "<Dialog.Root><Dialog.Trigger><Button>Open</Button></Dialog.Trigger><Dialog.Content><Dialog.Title>Title</Dialog.Title>Content</Dialog.Content></Dialog.Root>"
+      ]
+    },
+    "Badge": {
+      "description": "Status or label badge",
+      "importPath": "@radix-ui/themes",
+      "props": {
+        "color": {
+          "type": "string",
+          "description": "Badge color"
+        },
+        "variant": {
+          "type": "enum",
+          "values": ["solid", "soft", "outline"],
+          "default": "solid",
+          "description": "Badge style"
+        },
+        "size": {
+          "type": "enum",
+          "values": ["1", "2"],
+          "default": "1",
+          "description": "Badge size"
+        },
+        "children": {
+          "type": "ReactNode",
+          "required": true,
+          "description": "Badge content"
+        }
+      },
+      "examples": [
+        "<Badge>Active</Badge>",
+        "<Badge color='green' variant='soft'>Success</Badge>",
+        "<Badge color='red'>Error</Badge>"
+      ]
+    },
+    "Avatar": {
+      "description": "User profile image display",
+      "importPath": "@radix-ui/themes",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+          "default": "4",
+          "description": "Avatar size"
+        },
+        "src": {
+          "type": "string",
+          "description": "Image URL"
+        },
+        "fallback": {
+          "type": "string",
+          "description": "Fallback text (initials)"
+        }
+      },
+      "examples": [
+        "<Avatar src='https://example.com/avatar.jpg' fallback='JD' />",
+        "<Avatar fallback='AB' />"
+      ]
+    },
+    "Progress": {
+      "description": "Progress bar indicator",
+      "importPath": "@radix-ui/themes",
+      "props": {
+        "value": {
+          "type": "number",
+          "required": true,
+          "description": "Progress value (0-100)"
+        },
+        "size": {
+          "type": "enum",
+          "values": ["1", "2", "3"],
+          "default": "2",
+          "description": "Progress bar size"
+        },
+        "color": {
+          "type": "string",
+          "description": "Progress color"
+        }
+      },
+      "examples": [
+        "<Progress value={75} />",
+        "<Progress value={50} color='blue' size='3' />"
+      ]
+    },
+    "Checkbox": {
+      "description": "Checkbox input for boolean selection",
+      "importPath": "@radix-ui/themes",
+      "props": {
+        "checked": {
+          "type": "boolean",
+          "description": "Checked state"
+        },
+        "onCheckedChange": {
+          "type": "function",
+          "description": "Change event handler"
+        },
+        "disabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disable checkbox"
+        }
+      },
+      "examples": [
+        "<Checkbox />",
+        "<Checkbox checked={isChecked} onCheckedChange={setIsChecked} />"
+      ]
+    },
+    "RadioGroup": {
+      "description": "Radio button group for single selection",
+      "importPath": "@radix-ui/themes",
+      "props": {
+        "value": {
+          "type": "string",
+          "description": "Selected value"
+        },
+        "onValueChange": {
+          "type": "function",
+          "description": "Change event handler"
+        }
+      },
+      "subComponents": {
+        "RadioGroup.Root": "Radio group container",
+        "Radio": "Individual radio option"
+      },
+      "examples": [
+        "<RadioGroup.Root value='a' onValueChange={setValue}><Radio value='a' /><Radio value='b' /></RadioGroup.Root>"
+      ]
+    },
+    "Container": {
+      "description": "Centered max-width container",
+      "importPath": "@radix-ui/themes",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": ["1", "2", "3", "4"],
+          "default": "4",
+          "description": "Container max-width"
+        }
+      },
+      "examples": [
+        "<Container><p>Centered content</p></Container>"
+      ]
+    },
+    "Box": {
+      "description": "Generic container for layout",
+      "importPath": "@radix-ui/themes",
+      "props": {
+        "p": {
+          "type": "enum",
+          "values": ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+          "description": "Padding"
+        },
+        "m": {
+          "type": "enum",
+          "values": ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+          "description": "Margin"
+        },
+        "children": {
+          "type": "ReactNode",
+          "description": "Box content"
+        }
+      },
+      "examples": [
+        "<Box p='4'><Text>Content</Text></Box>"
+      ]
+    },
+    "Spinner": {
+      "description": "Loading spinner indicator",
+      "importPath": "@radix-ui/themes",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": ["1", "2", "3"],
+          "default": "2",
+          "description": "Spinner size"
+        }
+      },
+      "examples": [
+        "<Spinner />",
+        "<Spinner size='3' />"
+      ]
+    }
+  }
+}
